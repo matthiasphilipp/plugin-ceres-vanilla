@@ -19,7 +19,7 @@
     <div>
         <div class="container-max">
             <div class="row">
-                {{ LayoutContainer.show("Ceres::Header.LeftSide") }}
+                {{ LayoutContainer.show("CeresVanilla::Header.LeftSide") }}
 
                 <ul id="controlsList" class="controls-list list-inline">
 
@@ -97,14 +97,14 @@
                 </ul>
             </div>
         </div>
-        {% include "Ceres::PageDesign.Partials.Header.Navigation" %}
+        {% include "CeresVanilla::PageDesign.Partials.Header.Navigation" %}
     </div>
 </header>
 
 
 <!-- breadcrumb -->
 {% if not services.template.isHome() and not services.template.isMyAccount() and not services.template.isCheckout() %}
-    {% include "Ceres::PageDesign.Partials.Header.Breadcrumb" %}
+    {% include "CeresVanilla::PageDesign.Partials.Header.Breadcrumb" %}
 {% endif %}
 
 {% if category.linklist == "Y" %}
