@@ -30,8 +30,15 @@ class CeresVanillaServiceProvider extends ServiceProvider
     {
 
         $enabledOverrides = explode(", ", $config->get("CeresVanilla.templates.override"));
-
-        // Override partials
+		
+		$dispatcher->listen('IO.ctx.item', function (TemplateContainer $templateContainer, $templateData = [])
+          {
+              $templateContainer->setContext( MyContext::class);
+              return false;
+          }, 0);
+        
+		
+		// Override partials
         $dispatcher->listen('IO.init.templates', function (Partial $partial) use ($enabledOverrides)
         {
             pluginApp(Container::class)->register('CeresVanilla::PageDesign.Partials.Header.NavigationList.twig', NavigationCacheSettings::class);
