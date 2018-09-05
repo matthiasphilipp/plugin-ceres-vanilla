@@ -31,12 +31,6 @@ class CeresVanillaServiceProvider extends ServiceProvider
 
         $enabledOverrides = explode(", ", $config->get("CeresVanilla.templates.override"));
 		
-		// $dispatcher->listen('IO.ctx.item', function (TemplateContainer $templateContainer, $templateData = [])
-          // {
-              // $templateContainer->setContext( MyContext::class);
-              // return false;
-          // }, 0);
-        
 		
 		// Override partials
         $dispatcher->listen('IO.init.templates', function (Partial $partial) use ($enabledOverrides)
